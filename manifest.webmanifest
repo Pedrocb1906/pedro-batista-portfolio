@@ -1,0 +1,17 @@
+{
+  "name": "Pedro Batista | Executive Portfolio",
+  "short_name": "Pedro Batista",
+  "description": "Football leadership, strategy and innovation.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#061018",
+  "theme_color": "#061018",
+  "icons": [
+    {
+      "src": "assets/images/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
