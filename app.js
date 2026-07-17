@@ -39,6 +39,30 @@ document.querySelectorAll('.filter').forEach((button) => {
   });
 });
 
+document.querySelectorAll('.youtube-launch').forEach((button) => {
+  button.addEventListener('click', () => {
+    const videoId = button.dataset.youtube;
+    const start = Number.parseInt(button.dataset.start || '0', 10);
+    if (!videoId) return;
+
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?start=${start}&autoplay=1&rel=0`;
+    iframe.title = button.getAttribute('aria-label') || 'YouTube interview';
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    iframe.allowFullscreen = true;
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+    button.replaceWith(iframe);
+  });
+});
+
+document.querySelectorAll('video').forEach((video) => {
+  video.addEventListener('play', () => {
+    document.querySelectorAll('video').forEach((otherVideo) => {
+      if (otherVideo !== video) otherVideo.pause();
+    });
+  });
+});
+
 const dialog = document.querySelector('.lightbox');
 const dialogImage = dialog?.querySelector('.lightbox-stage img');
 const caption = dialog?.querySelector('.lightbox-caption');

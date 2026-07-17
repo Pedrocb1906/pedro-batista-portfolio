@@ -15,7 +15,7 @@
   <link rel="canonical" href="https://pedrocb1906.github.io/pedro-batista-portfolio/">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="assets/images/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -33,6 +33,7 @@
         <a href="#profile">Profile</a>
         <a href="#journey">Journey</a>
         <a href="#work">Portfolio</a>
+        <a href="#media">Media</a>
         <a href="#contact">Contact</a>
         <button class="share-small" type="button" data-share>Share</button>
       </nav>
@@ -83,6 +84,10 @@
             <span class="zoom-cue" aria-hidden="true">View full screen</span>
           </button>
           <div class="profile-copy reveal">
+            <figure class="executive-portrait">
+              <img src="assets/images/pedro-batista-original.webp" alt="Pedro Batista, international football executive" width="1024" height="1536" loading="lazy">
+              <figcaption><strong>Pedro Batista</strong><span>Football Executive</span></figcaption>
+            </figure>
             <p class="lead">I help clubs and ownership groups build modern, competitive and sustainable football structures.</p>
             <p>My work connects sporting vision, football operations, player development, scouting, recruitment, data, technology and leadership into one coherent operating model.</p>
             <div class="pillars" aria-label="Seven pillars of strategic impact">
@@ -215,6 +220,63 @@
       </div>
     </section>
 
+    <section class="section media-section" id="media">
+      <div class="shell">
+        <div class="section-heading split-heading reveal">
+          <div>
+            <p class="eyebrow"><span></span> Media &amp; interviews</p>
+            <h2>Football ideas, shared from the field.</h2>
+          </div>
+          <p>Selected interviews and field perspectives on leadership, academy development and football's social role.</p>
+        </div>
+
+        <div class="media-grid">
+          <article class="media-card media-card-featured reveal">
+            <div class="media-frame media-frame-youtube">
+              <button class="youtube-launch" type="button" data-youtube="NYie2KqqMXQ" data-start="224" aria-label="Play Sporting Foundation interview from 3 minutes 44 seconds">
+                <img src="assets/slides/slide-03.webp" alt="Sporting CP interview and social impact perspective" width="1467" height="825" loading="lazy">
+                <span class="play-button" aria-hidden="true">&#9654;</span>
+                <span class="video-duration">Starts at 03:44</span>
+              </button>
+            </div>
+            <div class="media-copy">
+              <p>Sporting TV &middot; Portugal</p>
+              <h3>Sporting Foundation: football, mission &amp; social impact</h3>
+              <span>A conversation on Sporting's community initiatives and football as a platform for development.</span>
+            </div>
+          </article>
+
+          <article class="media-card reveal">
+            <div class="media-frame">
+              <video controls preload="none" poster="assets/slides/slide-04.webp" playsinline aria-label="Pedro Batista field perspective from Nigeria">
+                <source src="assets/media/pedro-batista-nigeria.mp4" type="video/mp4">
+                Your browser does not support embedded video.
+              </video>
+            </div>
+            <div class="media-copy">
+              <p>Nigeria &middot; Leadership in context</p>
+              <h3>Building pathways through club and academy work</h3>
+              <span>A field perspective on leadership, development structures and the realities of implementation.</span>
+            </div>
+          </article>
+
+          <article class="media-card media-card-portrait reveal">
+            <div class="media-frame is-portrait">
+              <video controls preload="none" poster="assets/slides/slide-05.webp" playsinline aria-label="Pedro Batista academy perspective from Egypt">
+                <source src="assets/media/pedro-batista-egypt.mp4" type="video/mp4">
+                Your browser does not support embedded video.
+              </video>
+            </div>
+            <div class="media-copy">
+              <p>Egypt &middot; Academy development</p>
+              <h3>Turning methodology into daily practice</h3>
+              <span>Inside the work of aligning training, coaches and long-term player development.</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section philosophy-section">
       <div class="shell philosophy-grid">
         <div class="philosophy-copy reveal">
@@ -292,8 +354,8 @@
 
   <nav class="mobile-nav" aria-label="Mobile navigation">
     <a href="#home"><span aria-hidden="true">⌂</span>Home</a>
-    <a href="#journey"><span aria-hidden="true">↗</span>Journey</a>
     <a href="#work"><span aria-hidden="true">◇</span>Work</a>
+    <a href="#media"><span aria-hidden="true">▶</span>Media</a>
     <a href="#contact"><span aria-hidden="true">✦</span>Contact</a>
   </nav>
 
@@ -306,7 +368,6 @@
   </dialog>
 
   <div class="toast" role="status" aria-live="polite"></div>
-  <script src="app.js?v=2" defer></script>
+  <script src="app.js?v=3" defer></script>
 </body>
 </html>
-
