@@ -1,9 +1,9 @@
-const CACHE = 'pedro-batista-portfolio-v6';
+const CACHE = 'pedro-batista-portfolio-v7';
 const CORE = [
   './',
   './index.html',
   './styles.css?v=4',
-  './app.js?v=4',
+  './app.js?v=5',
   './manifest.webmanifest',
   './assets/images/icon.svg',
   './assets/images/og-image.jpg',

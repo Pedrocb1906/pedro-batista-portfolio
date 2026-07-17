@@ -14,6 +14,13 @@ nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () =
   menuButton?.setAttribute('aria-expanded', 'false');
 }));
 
+document.querySelector('[data-back-to-top]')?.addEventListener('click', (event) => {
+  event.preventDefault();
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.scrollTo({ top: 0, left: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+  history.replaceState(null, '', `${location.pathname}${location.search}#home`);
+});
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
