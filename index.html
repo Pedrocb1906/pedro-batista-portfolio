@@ -15,7 +15,7 @@
   <link rel="canonical" href="https://pedrocb1906.github.io/pedro-batista-portfolio/">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="assets/images/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -26,17 +26,25 @@
         <span class="brand-mark" aria-hidden="true">PB</span>
         <span><strong>Pedro Batista</strong><small>Football Executive</small></span>
       </a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
-        <span></span><span></span>
-      </button>
-      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
-        <a href="#profile">Profile</a>
-        <a href="#journey">Journey</a>
-        <a href="#work">Portfolio</a>
-        <a href="#media">Media</a>
-        <a href="#contact">Contact</a>
-        <button class="share-small" type="button" data-share>Share</button>
-      </nav>
+      <div class="header-actions">
+        <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+          <a href="#profile">Profile</a>
+          <a href="#vision">Vision</a>
+          <a href="#journey">Journey</a>
+          <a href="#work">Portfolio</a>
+          <a href="#media">Media</a>
+          <a href="#contact">Contact</a>
+          <button class="share-small" type="button" data-share>Share</button>
+        </nav>
+        <div class="language-switcher" role="group" aria-label="Choose language">
+          <button type="button" data-language="en" aria-pressed="true">EN</button>
+          <span aria-hidden="true">|</span>
+          <button type="button" data-language="pt" aria-pressed="false">PT</button>
+        </div>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -100,6 +108,41 @@
               <span><b>07</b> Social impact</span>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section vision-section" id="vision">
+      <div class="shell">
+        <div class="vision-intro reveal">
+          <p class="eyebrow"><span></span> Executive vision</p>
+          <h2>From identity to action.</h2>
+          <p class="vision-positioning">The ability to build. The knowledge to execute. The leadership to integrate.</p>
+          <div class="vision-manifesto">
+            <p>I believe sustainable success begins with a clear club identity: an honest understanding of what the institution represents, how it wants to compete and the value it wants to create for players, supporters and its community.</p>
+            <p>My experience allows me to build and implement the structures behind that ambition, from the game model and positional profiles to individual development, academy pathways, recruitment, analysis and technology. My greatest value, however, is connecting those areas through leadership, clear accountability and a shared direction.</p>
+            <p>A strong football organisation does not depend on one coach, one transfer window or one season. It creates continuity without becoming rigid, gives specialists the conditions to excel and turns knowledge into better decisions across the whole club.</p>
+          </div>
+        </div>
+
+        <div class="vision-flow reveal" aria-label="From club identity to sustainable performance">
+          <span>Club identity</span><i aria-hidden="true">→</i><span>Game model</span><i aria-hidden="true">→</i><span>Profiles</span><i aria-hidden="true">→</i><span>Development</span><i aria-hidden="true">→</i><span>Recruitment</span><i aria-hidden="true">→</i><span>Performance</span>
+        </div>
+
+        <div class="vision-pillars">
+          <article class="vision-card reveal"><b>01</b><h3>Identity &amp; Direction</h3><p>Define who the club is, what it stands for and where it is going. Identity should guide sporting decisions and give supporters a team they can understand and recognise.</p></article>
+          <article class="vision-card reveal"><b>02</b><h3>Integrated Leadership</h3><p>Connect the first team, academy, scouting, performance, medical, operations and management around shared priorities, clear responsibilities and open communication.</p></article>
+          <article class="vision-card reveal"><b>03</b><h3>A Club Game Model</h3><p>Translate identity, competitive objectives and league context into a flexible football framework that gives direction beyond any individual coach.</p></article>
+          <article class="vision-card reveal"><b>04</b><h3>Profiles &amp; Recruitment</h3><p>Turn the game model into positional requirements. Recruit players and coaches for their fit, contribution and potential, combining observation, context and evidence.</p></article>
+          <article class="vision-card reveal"><b>05</b><h3>Individual Development</h3><p>Give every player a clear development plan with relevant objectives, regular feedback and shared ownership, from academy prospects to first-team professionals.</p></article>
+          <article class="vision-card reveal"><b>06</b><h3>Academy Pathways</h3><p>Treat youth development as a strategic pillar of the club. Align principles, profiles and transition plans so talent can progress naturally towards professional football.</p></article>
+          <article class="vision-card reveal"><b>07</b><h3>Evidence &amp; Technology</h3><p>Use data and technology to make the club's own principles measurable, improve understanding, challenge assumptions and support faster, better-informed decisions.</p></article>
+          <article class="vision-card reveal"><b>08</b><h3>Sustainability &amp; Connection</h3><p>Link sporting performance to financial discipline, asset development and social relevance, strengthening the relationship between the club, its supporters and its community.</p></article>
+        </div>
+
+        <div class="vision-closing reveal">
+          <p>My role is to set the direction, build where needed, understand the detail and lead the people who turn strategy into daily performance.</p>
+          <strong>Direction to align. Knowledge to execute. Leadership to progress.</strong>
         </div>
       </div>
     </section>
@@ -274,26 +317,6 @@
       </div>
     </section>
 
-    <section class="section philosophy-section">
-      <div class="shell philosophy-grid">
-        <div class="philosophy-copy reveal">
-          <p class="eyebrow"><span></span> Operating philosophy</p>
-          <h2>Identity. Structure. Alignment. Progress.</h2>
-          <blockquote>“I bring a strategic and practical approach to club development, turning vision into structure, alignment and long-term sporting progress.”</blockquote>
-          <ul>
-            <li>Build football structures from the ground up</li>
-            <li>Lead multicultural club and academy projects</li>
-            <li>Connect governance, talent pathways and data</li>
-            <li>Translate strategic vision into practical operations</li>
-          </ul>
-        </div>
-        <button class="philosophy-visual image-button reveal" type="button" data-lightbox="assets/slides/slide-10.webp" data-caption="Executive Operating Philosophy">
-          <img src="assets/slides/slide-10.webp" alt="Pedro Batista's executive operating philosophy" width="1467" height="825" loading="lazy">
-          <span class="zoom-cue" aria-hidden="true">View full screen</span>
-        </button>
-      </div>
-    </section>
-
     <section class="section documents-section" id="documents">
       <div class="shell">
         <div class="section-heading split-heading reveal">
@@ -351,8 +374,8 @@
 
   <nav class="mobile-nav" aria-label="Mobile navigation">
     <a href="#home"><span aria-hidden="true">⌂</span>Home</a>
+    <a href="#vision"><span aria-hidden="true">◎</span>Vision</a>
     <a href="#work"><span aria-hidden="true">◇</span>Work</a>
-    <a href="#media"><span aria-hidden="true">▶</span>Media</a>
     <a href="#contact"><span aria-hidden="true">✦</span>Contact</a>
   </nav>
 
@@ -365,6 +388,7 @@
   </dialog>
 
   <div class="toast" role="status" aria-live="polite"></div>
-  <script src="app.js?v=5" defer></script>
+  <script src="translations.js?v=1" defer></script>
+  <script src="app.js?v=6" defer></script>
 </body>
 </html>

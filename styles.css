@@ -27,15 +27,20 @@ a { color: inherit; }
 
 .site-header { position: fixed; inset: 0 0 auto; z-index: 50; height: 78px; color: white; background: rgba(6, 16, 24, .72); border-bottom: 1px solid rgba(255,255,255,.09); backdrop-filter: blur(18px); }
 .header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+.header-actions { display: flex; align-items: center; gap: 18px; }
 .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
 .brand-mark { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid rgba(231,188,99,.6); color: var(--gold-light); font: 800 12px/1 ui-monospace, monospace; letter-spacing: .08em; }
 .brand strong, .brand small { display: block; }
 .brand strong { font-size: 14px; letter-spacing: .04em; }
 .brand small { color: rgba(255,255,255,.6); font-size: 10px; text-transform: uppercase; letter-spacing: .16em; margin-top: 3px; }
-.site-nav { display: flex; align-items: center; gap: 28px; }
+.site-nav { display: flex; align-items: center; gap: 20px; }
 .site-nav a { text-decoration: none; font-size: 13px; color: rgba(255,255,255,.76); transition: color .2s; }
 .site-nav a:hover { color: white; }
 .share-small { border: 1px solid rgba(255,255,255,.2); background: transparent; color: white; padding: 10px 16px; border-radius: 100px; cursor: pointer; }
+.language-switcher { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,.32); padding-left: 2px; }
+.language-switcher button { border: 0; background: transparent; color: rgba(255,255,255,.48); padding: 7px 3px; cursor: pointer; font-size: 10px; font-weight: 850; letter-spacing: .1em; }
+.language-switcher button[aria-pressed="true"] { color: var(--gold-light); }
+.language-switcher button:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; border-radius: 3px; }
 .menu-toggle { display: none; width: 44px; height: 44px; border: 0; background: transparent; position: relative; }
 .menu-toggle span { position: absolute; width: 22px; height: 1px; left: 11px; background: white; transition: transform .2s, top .2s; }
 .menu-toggle span:first-child { top: 17px; }.menu-toggle span:last-child { top: 25px; }
@@ -91,6 +96,27 @@ a { color: inherit; }
 .pillars span { background: rgba(255,255,255,.55); padding: 13px 14px; border-radius: 12px; font-size: 12px; line-height: 1.3; }
 .pillars b { display: block; color: var(--gold); font-size: 9px; letter-spacing: .1em; margin-bottom: 4px; }
 .zoom-cue { position: absolute; right: 12px; bottom: 12px; background: rgba(6,16,24,.86); color: white; border: 1px solid rgba(255,255,255,.15); padding: 9px 11px; border-radius: 100px; font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
+
+.vision-section { background: #f6f3e9; border-top: 1px solid rgba(199,146,47,.22); }
+.vision-intro { display: grid; grid-template-columns: minmax(0,.82fr) minmax(0,1.18fr); column-gap: 80px; }
+.vision-intro .eyebrow, .vision-intro h2, .vision-positioning { grid-column: 1; }
+.vision-intro h2 { margin: 18px 0 20px; font-size: clamp(48px, 6vw, 78px); line-height: .98; letter-spacing: -.055em; }
+.vision-positioning { margin: 0; max-width: 500px; color: var(--green); font-size: 15px; font-weight: 800; line-height: 1.55; }
+.vision-manifesto { grid-column: 2; grid-row: 1 / span 3; align-self: end; }
+.vision-manifesto p { margin: 0 0 16px; color: #4f5b63; font-size: 15px; line-height: 1.75; }
+.vision-manifesto p:first-child { color: var(--text); font-size: 19px; line-height: 1.55; letter-spacing: -.015em; }
+.vision-flow { display: flex; align-items: center; justify-content: space-between; gap: 13px; margin: 62px 0 26px; padding: 20px 24px; border-radius: 16px; background: var(--ink); color: white; overflow-x: auto; scrollbar-width: none; }
+.vision-flow::-webkit-scrollbar { display: none; }
+.vision-flow span { flex: 0 0 auto; font-size: 10px; font-weight: 850; letter-spacing: .11em; text-transform: uppercase; }
+.vision-flow i { flex: 0 0 auto; color: var(--gold-light); font-style: normal; }
+.vision-pillars { display: grid; grid-template-columns: repeat(4,1fr); gap: 13px; }
+.vision-card { min-height: 245px; display: flex; flex-direction: column; padding: 25px 23px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.6); }
+.vision-card b { color: var(--gold); font: 800 10px/1 ui-monospace, monospace; letter-spacing: .12em; }
+.vision-card h3 { margin: auto 0 13px; max-width: 190px; font-size: 20px; line-height: 1.1; letter-spacing: -.025em; }
+.vision-card p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.62; }
+.vision-closing { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; margin-top: 26px; padding: 30px 34px; border-radius: 18px; background: #dedbd0; }
+.vision-closing p { margin: 0; color: #45525a; font-size: 14px; line-height: 1.65; }
+.vision-closing strong { color: var(--ink); font-size: clamp(21px,2.5vw,31px); line-height: 1.18; letter-spacing: -.03em; }
 
 .journey-section { background: var(--ink); color: white; }
 .journey-section .split-heading > p { color: rgba(255,255,255,.55); }
@@ -208,6 +234,9 @@ a { color: inherit; }
   .hero { min-height: auto; }
   .hero-grid { gap: 50px; }
   .profile-grid, .philosophy-grid { gap: 42px; }
+  .vision-intro { grid-template-columns: 1fr; gap: 28px; }
+  .vision-manifesto { grid-column: 1; grid-row: auto; }
+  .vision-pillars { grid-template-columns: 1fr 1fr; }
   .contact-card { gap: 35px; }
   .split-heading { align-items: start; flex-direction: column; gap: 18px; }
   .site-nav { position: fixed; inset: 78px 0 auto; padding: 28px 20px 34px; background: rgba(6,16,24,.98); flex-direction: column; align-items: stretch; gap: 0; transform: translateY(-120%); transition: transform .28s ease; border-bottom: 1px solid rgba(255,255,255,.12); }
@@ -242,6 +271,13 @@ a { color: inherit; }
   .section-heading { margin-bottom: 38px; }
   .section-heading h2, .philosophy-copy h2, .contact-card h2 { font-size: 40px; }
   .profile-copy .lead { font-size: 22px; }
+  .vision-intro h2 { font-size: 48px; }
+  .vision-manifesto p:first-child { font-size: 17px; }
+  .vision-flow { justify-content: flex-start; margin-top: 42px; padding: 17px 18px; }
+  .vision-pillars { grid-template-columns: 1fr; }
+  .vision-card { min-height: 0; padding: 22px 20px; }
+  .vision-card h3 { margin: 28px 0 11px; max-width: none; }
+  .vision-closing { grid-template-columns: 1fr; gap: 22px; padding: 26px 22px; }
   .executive-portrait { width: min(43%, 158px); margin: 0 0 18px 18px; border-radius: 15px; }
   .pillars { display: flex; overflow-x: auto; margin-inline: -14px; padding: 0 14px 4px; scrollbar-width: none; }
   .pillars span { min-width: 150px; }

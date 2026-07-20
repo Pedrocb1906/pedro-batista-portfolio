@@ -3,10 +3,74 @@ const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.site-nav');
 const toast = document.querySelector('.toast');
 
+const i18n = window.portfolioI18n || { pt: {}, meta: {} };
+const originalText = new Map();
+const originalAttributes = new Map();
+const textWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+let currentTextNode;
+
+while ((currentTextNode = textWalker.nextNode())) {
+  if (currentTextNode.nodeValue.trim()) originalText.set(currentTextNode, currentTextNode.nodeValue);
+}
+
+document.querySelectorAll('[aria-label], [alt], [title], [data-caption]').forEach((element) => {
+  const values = {};
+  ['aria-label', 'alt', 'title', 'data-caption'].forEach((attribute) => {
+    if (element.hasAttribute(attribute)) values[attribute] = element.getAttribute(attribute);
+  });
+  originalAttributes.set(element, values);
+});
+
+let currentLanguage = 'en';
+
+function translationFor(value, language) {
+  return language === 'pt' ? (i18n.pt[value] || value) : value;
+}
+
+function applyLanguage(language) {
+  currentLanguage = language === 'pt' ? 'pt' : 'en';
+  document.documentElement.lang = currentLanguage === 'pt' ? 'pt-PT' : 'en';
+
+  originalText.forEach((value, node) => {
+    const trimmed = value.trim();
+    node.nodeValue = value.replace(trimmed, translationFor(trimmed, currentLanguage));
+  });
+
+  originalAttributes.forEach((values, element) => {
+    Object.entries(values).forEach(([attribute, value]) => {
+      element.setAttribute(attribute, translationFor(value, currentLanguage));
+    });
+  });
+
+  const meta = i18n.meta[currentLanguage];
+  if (meta) {
+    document.title = meta.title;
+    document.querySelector('meta[name="description"]')?.setAttribute('content', meta.description);
+    document.querySelector('meta[property="og:title"]')?.setAttribute('content', meta.title);
+    document.querySelector('meta[property="og:description"]')?.setAttribute('content', meta.ogDescription);
+  }
+
+  document.querySelectorAll('[data-language]').forEach((button) => {
+    button.setAttribute('aria-pressed', String(button.dataset.language === currentLanguage));
+  });
+
+  try { localStorage.setItem('pedro-portfolio-language', currentLanguage); } catch (error) { /* Session-only preference. */ }
+}
+
+document.querySelectorAll('[data-language]').forEach((button) => {
+  button.addEventListener('click', () => applyLanguage(button.dataset.language));
+});
+
+try {
+  applyLanguage(localStorage.getItem('pedro-portfolio-language') || 'en');
+} catch (error) {
+  applyLanguage('en');
+}
+
 menuButton?.addEventListener('click', () => {
   const open = body.classList.toggle('menu-open');
   menuButton.setAttribute('aria-expanded', String(open));
-  menuButton.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  menuButton.setAttribute('aria-label', translationFor(open ? 'Close menu' : 'Open menu', currentLanguage));
 });
 
 nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
@@ -70,7 +134,7 @@ document.querySelectorAll('[data-lightbox]').forEach((button) => {
   button.addEventListener('click', () => {
     if (!dialog || !dialogImage || !caption) return;
     dialogImage.src = button.dataset.lightbox;
-    dialogImage.alt = button.querySelector('img')?.alt || button.dataset.caption || 'Portfolio visual';
+    dialogImage.alt = button.querySelector('img')?.alt || button.dataset.caption || translationFor('Portfolio visual', currentLanguage);
     caption.textContent = button.dataset.caption || '';
     setZoom(1);
     dialog.showModal();
@@ -101,18 +165,18 @@ function showToast(message) {
 document.querySelectorAll('[data-share]').forEach((button) => {
   button.addEventListener('click', async () => {
     const data = {
-      title: 'Pedro Batista | Football Executive',
-      text: 'Explore Pedro Batista’s executive football portfolio.',
+      title: i18n.meta[currentLanguage]?.title || 'Pedro Batista | Football Executive',
+      text: currentLanguage === 'pt' ? 'Conheça o portefólio executivo de futebol de Pedro Batista.' : 'Explore Pedro Batista’s executive football portfolio.',
       url: window.location.href
     };
     try {
       if (navigator.share) await navigator.share(data);
       else {
         await navigator.clipboard.writeText(window.location.href);
-        showToast('Portfolio link copied');
+        showToast(currentLanguage === 'pt' ? 'Ligação do portefólio copiada' : 'Portfolio link copied');
       }
     } catch (error) {
-      if (error?.name !== 'AbortError') showToast('Use your browser menu to share this page');
+      if (error?.name !== 'AbortError') showToast(currentLanguage === 'pt' ? 'Utilize o menu do navegador para partilhar esta página' : 'Use your browser menu to share this page');
     }
   });
 });
