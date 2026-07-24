@@ -1,14 +1,17 @@
-const CACHE = 'pedro-batista-portfolio-v8';
+const CACHE = 'pedro-batista-portfolio-v10';
 const CORE = [
   './',
   './index.html',
-  './styles.css?v=6',
-  './translations.js?v=1',
-  './app.js?v=6',
+  './styles.css?v=7',
+  './translations.js?v=2',
+  './app.js?v=7',
   './manifest.webmanifest',
   './assets/images/icon.svg',
   './assets/images/og-image.jpg',
   './assets/images/pedro-batista-original.webp',
+  './assets/images/insights/ai-football-analysis.webp?v=2',
+  './assets/images/insights/african-football-systems.webp?v=2',
+  './assets/images/insights/egypt-football-perspective.webp?v=2',
   './assets/slides/slide-01.webp',
   './assets/slides/slide-02.webp',
   './assets/slides/slide-03.webp',
