@@ -3,29 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://pedrocunhabatista.github.io/">
+  <meta http-equiv="refresh" content="0;url=https://pedrocunhabatista.github.io/">
   <title>Opening Pedro Batista's Portfolio</title>
   <script>
     (() => {
-      const basePath = '/pedro-batista-portfolio/';
-      const validSections = new Set(['home', 'profile', 'vision', 'journey', 'work', 'insights', 'media', 'documents', 'contact']);
-      let section = 'home';
-
-      try {
-        const remainder = location.pathname.slice(basePath.length).replace(/^\/+/, '');
-        const decoded = decodeURIComponent(remainder);
-        if (decoded.startsWith('#') && validSections.has(decoded.slice(1))) {
-          section = decoded.slice(1);
-        }
-      } catch (error) {
-        // Invalid URL encoding falls back safely to the homepage.
-      }
-
-      location.replace(`${location.origin}${basePath}${location.search}#${section}`);
+      const destination = 'https://pedrocunhabatista.github.io';
+      const oldBase = '/pedro-batista-portfolio';
+      let path = location.pathname.startsWith(oldBase)
+        ? location.pathname.slice(oldBase.length)
+        : location.pathname;
+      if (!path || path === '/') path = '/';
+      location.replace(`${destination}${path}${location.search}${location.hash}`);
     })();
   </script>
 </head>
 <body>
-  <p>Opening <a href="/pedro-batista-portfolio/#home">Pedro Batista's portfolio</a>…</p>
+  <p>Opening <a href="https://pedrocunhabatista.github.io/">Pedro Batista's portfolio</a>&hellip;</p>
 </body>
 </html>
